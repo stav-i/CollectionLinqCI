@@ -63,7 +63,7 @@ namespace AssignmentTests
 
         [Theory]
         [MemberData(nameof(ProductTestData))]
-        public void FilterElectronicsUnder100_GivenList_ReturnsMatchingProducts(List<Assignments.Product> input, List<Assignments.Product> expected)
+        public void FilterElectronicsUnder100_GivenList_ReturnsMatchingProducts(List<Product> input, List<Product> expected)
         {
             var result = Assignments.FilterElectronicsUnder100(input);
 
@@ -81,42 +81,42 @@ namespace AssignmentTests
         {
             yield return new object[]
             {
-                new List<Assignments.Product>
+                new List<Product>
                 {
-                    new Assignments.Product { Name = "Phone", Price = 500, Category = "Electronics" },
-                    new Assignments.Product { Name = "USB Cable", Price = 10, Category = "Electronics" },
-                    new Assignments.Product { Name = "Shirt", Price = 50, Category = "Apparel" }
+                    new Product { Name = "Phone", Price = 500, Category = "Electronics" },
+                    new Product { Name = "USB Cable", Price = 10, Category = "Electronics" },
+                    new Product { Name = "Shirt", Price = 50, Category = "Apparel" }
                 },
-                new List<Assignments.Product>
+                new List<Product>
                 {
-                    new Assignments.Product { Name = "USB Cable", Price = 10, Category = "Electronics" }
+                    new Product { Name = "USB Cable", Price = 10, Category = "Electronics" }
                 }
             };
 
             yield return new object[]
             {
-                new List<Assignments.Product>(),
-                new List<Assignments.Product>()
+                new List<Product>(),
+                new List<Product>()
             };
 
             yield return new object[]
             {
-                new List<Assignments.Product>
+                new List<Product>
                 {
-                    new Assignments.Product { Name = "Shirt", Price = 50, Category = "Apparel" },
-                    new Assignments.Product { Name = "Hat", Price = 20, Category = "Apparel" }
+                    new Product { Name = "Shirt", Price = 50, Category = "Apparel" },
+                    new Product { Name = "Hat", Price = 20, Category = "Apparel" }
                 },
-                new List<Assignments.Product>()
+                new List<Product>()
                 };
 
             yield return new object[]
             {
-                new List<Assignments.Product>
+                new List<Product>
                 {
-                    new Assignments.Product { Name = "TV", Price = 1000, Category = "Electronics" },
-                    new Assignments.Product { Name = "Laptop", Price = 1200, Category = "Electronics" }
+                    new Product { Name = "TV", Price = 1000, Category = "Electronics" },
+                    new Product { Name = "Laptop", Price = 1200, Category = "Electronics" }
                 },
-                new List<Assignments.Product>()
+                new List<Product>()
         };
         }
 
