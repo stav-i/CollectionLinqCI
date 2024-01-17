@@ -26,7 +26,17 @@ namespace CollectionLinqAssignment
             //Use LINQ to find and return all even numbers back. Note the method return type
             //Also return empty array if the input is null.
 
-            throw new NotImplementedException();
+            var evenNumbers = numbers.Where(x => x % 2 == 0).ToArray();
+
+            var tasaLuvut = new List<int>();
+
+            foreach (var number in numbers)
+            {
+                if(number % 2 == 0)
+                    tasaLuvut.Add(number);
+            }
+
+            return evenNumbers;
         }
 
         /// <summary>
@@ -63,6 +73,24 @@ namespace CollectionLinqAssignment
             //Hint check Where() and ToDictionary() methods.
 
             //Also return empty dictionary if the input is null.
+
+            if (cities == null)
+                return new Dictionary<string, int>();
+
+            var citiesOverOneMillion = cities
+                .Where(cities => cities.Value >= 1000000)
+                .ToDictionary(cities => cities.Key, cities => cities.Value);
+
+            var yliMiljoona = new Dictionary<string, int>();
+
+            foreach (var city in cities)
+            {
+                if(city.Value >= 100000)
+                    yliMiljoona.Add(city.Key, city.Value);
+            }
+
+
+            return citiesOverOneMillion;
 
             throw new NotImplementedException();
         }
@@ -202,7 +230,20 @@ namespace CollectionLinqAssignment
             // +-------------------------------------------------------------+
             // Hint: Use SelectMany() to flatten the list of students from all schools.
 
-            throw new NotImplementedException();
+            var allStudents = schools.SelectMany(x => x.Students).ToList(); 
+
+            var kasin = new List<Student>();
+
+            foreach (var school in schools)
+            {
+                foreach (var student in school.Students)
+                {
+                    kasin.Add(student);
+                }
+            }
+
+            return allStudents;
+
         }
 
 
